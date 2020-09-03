@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mission to Mars</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <style>
+      .responsive {width: 100%; height: auto;}
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="jumbotron text-center">
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape new data</a></p>
+    </div>
+
+    <!-- Mars news headline -->
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Latest Mars News</h2>
+        <h3>{{scrape.headline}}</h3>
+        <p>{{scrape.text}}</p>
+      </div>
+    </div>
+
+    <!-- Featured image and table -->
+    <div class="row">
+        <div class="col-md-8">
+            <h2>Featured Mars Image</h2>
+            <img src="{{scrape.src}}" alt="{{scrape.alt}}" class="responsive">
+        </div>
+        <div class="col-md-4">
+            <h2>Mars Facts</h2>
+            {{scrape.html}}
+        </div>
+    </div>
+
+    <!-- Mars Hemispheres -->
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Mars Hemispheres</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{scrape.src2}}" alt="{{scrape.alt2}}" class="responsive">
+            <h3>{{scrape.title2}}</h3>
+        </div>
+        <div class="col-md-6">
+            <img src="{{scrape.src3}}" alt="{{scrape.alt3}}" class="responsive">
+            <h3>{{scrape.title3}}</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{{scrape.src4}}" alt="{{scrape.alt4}}" class="responsive">
+            <h3>{{scrape.title4}}</h3>
+        </div>
+        <div class="col-md-6">
+            <img src="{{scrape.src5}}" alt="{{scrape.alt5}}" class="responsive">
+            <h3>{{scrape.title5}}</h3>
+        </div>
+    </div>
+  </div>
+</body>
+
+</html>
+
