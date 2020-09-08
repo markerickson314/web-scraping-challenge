@@ -21,8 +21,11 @@ def scrape():
     li = soup.find('li', class_='slide')
     div = li.find("div", class_="content_title")
     news_title = div.find("a").get_text()
+    a = div.find("a")
+    news_link = a['href']
     news_p = soup.find("div", class_="article_teaser_body").get_text()
     scrape["headline"] = news_title
+    scrape["link"] = 'https://mars.nasa.gov' + news_link
     scrape["text"] = news_p
     browser.quit()
 
@@ -45,7 +48,9 @@ def scrape():
     url = "https://space-facts.com/mars/"
     tables = pd.read_html(url)
     df = tables[0]
-    html_table=df.to_html()
+    df.columns = ['Description', 'Mars']
+    df.set_index('Description', inplace=True)
+    html_table = df.to_html(classes="table table-striped")
     scrape["html"] = html_table
 
     # Mars Hemispheres

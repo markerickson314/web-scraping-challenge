@@ -24,7 +24,7 @@
     <div class="row">
       <div class="col-md-12">
         <h2>Latest Mars News</h2>
-        <h3>{{scrape.headline}}</h3>
+        <h3><a href="{{scrape.link}}"> {{scrape.headline}}</a></h3>
         <p>{{scrape.text}}</p>
       </div>
     </div>
@@ -34,10 +34,11 @@
         <div class="col-md-8">
             <h2>Featured Mars Image</h2>
             <img src="{{scrape.src}}" alt="{{scrape.alt}}" class="responsive">
+            <p>{{scrape.alt}}</p>
         </div>
         <div class="col-md-4">
             <h2>Mars Facts</h2>
-            {{scrape.html}}
+            {{scrape.html|safe}}
         </div>
     </div>
 
